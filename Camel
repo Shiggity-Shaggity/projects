@@ -42,6 +42,7 @@ public class Game {
             System.out.println("5) Status check");
             System.out.println("6) Quit");
             
+            int oasischance = 0;
             int choice = scanner.nextInt();
             if(choice == 1){
                 canteen--;
@@ -71,6 +72,27 @@ public class Game {
                 System.exit(0);
                         
             }
+            
+            if(choice == 2){
+                oasis = (int) (Math.random()*9) + 1;
+                if(oasis == 2){
+                    System.out.println("Your found an oasis!");
+                    while(cateen != 5){
+                        canteen++;
+                    }
+                    System.out.println("Your canteen was filled!");
+                }
+            }else if(choice == 3){
+                oasis = (int) (Math.random()*14) + 1;
+                if(oasis == 2){
+                    System.out.println("You found an oasis!");
+                    while(cateen != 5){
+                        canteen++;
+                    }
+                    System.out.println("You canteen was filled!");
+                }
+            }
+           
             
             if((distancetraveled - nativedistance) <= 12){
                 System.out.println("The natives are getting close!");

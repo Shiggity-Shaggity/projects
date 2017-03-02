@@ -3,12 +3,16 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args){
         Game();
+        int gamecompleted = 0;
 
     }
     public static void playAgain(){
         System.out.println("Play again?");
         System.out.println("1) Yes");
         System.out.println("2) No");
+        if(gamecompleted == 1){
+            System.println("3) Endless Mode");
+        }
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         if (choice == 1){
@@ -18,6 +22,10 @@ public class Game {
         if (choice == 2){
             System.out.println("Ok, quitting...");
             System.exit(0);
+        }
+        if(choice == 3 && gamecompleted = 1){
+            System.out.println("Loading...");
+            endlessGame();
         }
     }
     public static void Game(){
@@ -30,6 +38,7 @@ public class Game {
         int nativedistance = -20;
         int distancetraveled = 0;
         double thirst = 5;
+        int hidefailed = 0;
 
         while(playing){
 
@@ -78,9 +87,8 @@ public class Game {
                         System.out.println("The natives lost you! they went back to camp! They will come again so you need to keep moving.");
                         
                     }else{
-                        nativedistance = distancetraveled;
+                        hidefailed = 1;
                     }
-                    
                     break;
                 case 7:
                     System.out.println("You quit");
@@ -119,7 +127,7 @@ public class Game {
                 System.out.println("Your camel needs to rest!");
             }
 
-            if(camelwear <= 0 || thirst <= 0 || (distancetraveled - nativedistance) <= 0 || distancetraveled >= 200){
+            if(hidefailed == 1 || camelwear <= 0 || thirst <= 0 || (distancetraveled - nativedistance) <= 0 || distancetraveled >= 200){
                 playing = false;
             }
 
@@ -136,8 +144,14 @@ public class Game {
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(distancetraveled >= 200){
             System.out.println("You made it across the desert! You won!");
+            
+        }else if(hidefailed == 1){
+            System.out.println("The natives found you! You lose!")
         }
         playAgain();
+    }
+    public static void endlessGame{
+        //add ______________________________________________________________________ Gameplay visual
     }
 }
 

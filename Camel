@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//BASE CODE CHANGING STORY LATER
 public class Game {
     public static void main(String[] args){
         Game();
@@ -39,42 +39,58 @@ public class Game {
             System.out.println("3) Travel half speed");
             System.out.println("4) Stop and rest");
             System.out.println("5) Status check");
-            System.out.println("6) Quit");
+            System.out.println("6) Hide");
+            System.out.println("7) Quit");
 
-            int oasis = 0;
             int choice = scanner.nextInt();
-            if(choice == 1){
-                canteen--;
-                thirst++;
-                nativedistance = nativedistance + (int)(Math.random()*6) + 6;
-            }else if(choice == 2){
-                camelwear--;
-                nativedistance = nativedistance + (int)(Math.random()*6) + 6;
-                distancetraveled = distancetraveled + (int)(Math.random()*6) + 12;
-                thirst--;
-            }else if(choice == 3){
-                camelwear = camelwear - 0.5;
-                nativedistance = nativedistance + (int)(Math.random()*6) + 6;
-                distancetraveled = distancetraveled + (int)(Math.random()*6) + 6;
-                thirst = thirst - 0.5;
-            }else if(choice == 4){
-                camelwear++;
-                nativedistance = nativedistance + (int)(Math.random()*6) + 6;
-            }else if(choice == 5){
-                System.out.println("Your canteen has " + canteen + " drinks left in it.");
-                System.out.println("Your camel is at " + (camelwear * 20) + "%");
-                System.out.println("You have traveled " + distancetraveled + " miles.");
-                System.out.println("The natives are " + (distancetraveled-nativedistance) + " miles away.");
-                System.out.println("Your thirst level is at " + thirst + ".");
-            }else if(choice == 6){
-                System.out.println("You quit");
-                System.exit(0);
-
+            switch (choice) {
+                case 1:
+                    canteen--;
+                    thirst++;
+                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
+                    break;
+                case 2:
+                    camelwear--;
+                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
+                    distancetraveled = distancetraveled + (int)(Math.random()*6) + 12;
+                    thirst--;
+                    break;
+                case 3:
+                    camelwear = camelwear - 0.5;
+                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
+                    distancetraveled = distancetraveled + (int)(Math.random()*6) + 6;
+                    thirst = thirst - 0.5;
+                    break;
+                case 4:
+                    camelwear++;
+                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
+                    break;
+                case 5:
+                    System.out.println("Your canteen has " + canteen + " drinks left in it.");
+                    System.out.println("Your camel is at " + (camelwear * 20) + "%");
+                    System.out.println("You have traveled " + distancetraveled + " miles.");
+                    System.out.println("The natives are " + (distancetraveled-nativedistance) + " miles away.");
+                    System.out.println("Your thirst level is at " + thirst + ".");
+                    break;
+                case 6:
+                    if(((int)(Math.random()*2) + 1) == 2){
+                        nativedistance = ((nativedistance / nativedistance) - 21);
+                        System.out.println("The natives lost you! they went back to camp! They will come again so you need to keep moving.");
+                        
+                    }else{
+                        nativedistance = distancetraveled;
+                    }
+                    
+                    break;
+                case 7:
+                    System.out.println("You quit");
+                    System.exit(0);
+                default:
+                    break;
             }
 
             if(choice == 2){
-                oasis = (int) (Math.random()*9) + 1;
-                if(oasis == 2){
+                if(((int) (Math.random()*9) + 1) == 2){
                     System.out.println("You found an oasis!");
                     while(canteen != 5){
                         canteen++;
@@ -82,8 +98,7 @@ public class Game {
                     System.out.println("Your canteen was filled!");
                 }
             }else if(choice == 3){
-                oasis = (int) (Math.random()*14) + 1;
-                if(oasis == 2){
+                if(((int) (Math.random()*14) + 1) == 2){
                     System.out.println("You found an oasis!");
                     while(canteen != 5){
                         canteen++;
@@ -93,7 +108,7 @@ public class Game {
             }
 
 
-            if((distancetraveled - nativedistance) <= 12){
+            if((distancetraveled - nativedistance) <= 12 && (distancetraveled - nativedistance) >= 1){
                 System.out.println("The natives are getting close!");
             }
             if(thirst <= 1){
@@ -125,3 +140,4 @@ public class Game {
         playAgain();
     }
 }
+

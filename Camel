@@ -1,16 +1,15 @@
-
 import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args){
-        Game();     
-        
+        Game();
+
     }
     public static void playAgain(){
         System.out.println("Play again?");
         System.out.println("1) Yes");
         System.out.println("2) No");
-        Scanner scanner = new Scanner(System.in); 
+        Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         if (choice == 1){
             System.out.println("Loading...");
@@ -23,7 +22,7 @@ public class Game {
     }
     public static void Game(){
         boolean playing = true;
-        Scanner scanner = new Scanner(System.in); 
+        Scanner scanner = new Scanner(System.in);
         System.out.println("start");
         System.out.println("Sample text");
         double canteen = 5;
@@ -31,9 +30,9 @@ public class Game {
         int nativedistance = -20;
         int distancetraveled = 0;
         double thirst = 5;
-        
+
         while(playing){
-            
+
             System.out.println("You can ");
             System.out.println("1) Drink ");
             System.out.println("2) Travel full speed");
@@ -41,8 +40,8 @@ public class Game {
             System.out.println("4) Stop and rest");
             System.out.println("5) Status check");
             System.out.println("6) Quit");
-            
-            int oasischance = 0;
+
+            int oasis = 0;
             int choice = scanner.nextInt();
             if(choice == 1){
                 canteen--;
@@ -70,14 +69,14 @@ public class Game {
             }else if(choice == 6){
                 System.out.println("You quit");
                 System.exit(0);
-                        
+
             }
-            
+
             if(choice == 2){
                 oasis = (int) (Math.random()*9) + 1;
                 if(oasis == 2){
                     System.out.println("You found an oasis!");
-                    while(cateen != 5){
+                    while(canteen != 5){
                         canteen++;
                     }
                     System.out.println("Your canteen was filled!");
@@ -86,30 +85,30 @@ public class Game {
                 oasis = (int) (Math.random()*14) + 1;
                 if(oasis == 2){
                     System.out.println("You found an oasis!");
-                    while(cateen != 5){
+                    while(canteen != 5){
                         canteen++;
                     }
                     System.out.println("Your canteen was filled!");
                 }
             }
-           
-            
+
+
             if((distancetraveled - nativedistance) <= 12){
                 System.out.println("The natives are getting close!");
             }
             if(thirst <= 1){
                 System.out.println("You need to drink soon!");
             }
-            
+
             if(camelwear <= 1){
                 System.out.println("Your camel needs to rest!");
             }
-            
+
             if(camelwear <= 0 || thirst <= 0 || (distancetraveled - nativedistance) <= 0 || distancetraveled >= 200){
                 playing = false;
             }
-            
-           
+
+
         }
         if((distancetraveled - nativedistance) <= 0){
             System.out.println("The natives caught you! You lost.");
@@ -124,5 +123,5 @@ public class Game {
             System.out.println("You made it across the desert! You won!");
         }
         playAgain();
-    } 
+    }
 }

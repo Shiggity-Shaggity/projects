@@ -341,13 +341,19 @@ public class Game {
                     System.out.println("                    N P");
                     System.out.println("- - - - - - - - - - - -");
                 }
+                if((distancetraveled - nativedistance) <= (nativedistance / 2)(int) Math.random()){
+                    
+                }
+                
+                
+                
 
             }else{
             //ON FOOT MODE I GUESS
             
-            
+                                                                           
             } 
-
+                                                                                     
         }
         //Win or loss message
         if((distancetraveled - nativedistance) <= 0){

@@ -357,18 +357,18 @@ public class Game {
         }
         //Win or loss message
         if((distancetraveled - nativedistance) <= 0){
-            System.out.println("The natives caught you! You lost.");
+            System.out.println("The natives caught you!");
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(thirst <= 0){
-            System.out.println("You died of thirst! You lost.");
+            System.out.println("You died of thirst! ");
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(camelwear <= 0){
-            System.out.println("Your camel died and the natives caught up to you! You lost.");
+            System.out.println("Your camel died and the natives caught up to you!");
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(distancetraveled >= 200){
             System.out.println("You made it across the desert! You won!");
         }else if(hidefailed == 1){
-            System.out.println("The natives found you! You lose!");
+            System.out.println("The natives found you!");
         }
         playAgain1();
     }

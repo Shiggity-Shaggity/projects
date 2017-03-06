@@ -2,6 +2,7 @@ import java.util.Scanner;
 //BASE CODE CHANGING STORY LATER
 public class Game {
     public static void main(String[] args){
+        System.out.println("Rip, I waited to long to implement the on foot thing~");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         if(choice == 1){
@@ -55,8 +56,7 @@ public class Game {
     public static void Game(){
         boolean playing = true;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("start");
-        System.out.println("Sample text");
+        System.out.println("You were a prisoner of some empire thing and you escaped. When you escaped, you stole one of their Horses. One of the guards realized that a horse was missing before you left and sent a smalel party out to search for you. You must travel 200 miles to escape them. Good luck!");
         double canteen = 5;
         double camelwear = 5;
         int nativedistance = -20;
@@ -79,37 +79,42 @@ public class Game {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    canteen--;
-                    thirst++;
-                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
+                    if(canteen > 0){
+                        canteen--;
+                        thirst++;
+                        nativedistance += (int)(Math.random()*6) + 5;
+                    }
+                    if(canteen <= 0){
+                        System.out.println("You have no more water left! You need to hide or keep moving!");
+                    }
                     break;
                 case 2:
                     camelwear--;
-                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
-                    distancetraveled = distancetraveled + (int)(Math.random()*6) + 12;
+                    nativedistance += (int)(Math.random()*6) + 5;
+                    distancetraveled += (int)(Math.random()*6) + 13;
                     thirst--;
                     break;
                 case 3:
                     camelwear -= 0.5;
-                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
-                    distancetraveled = distancetraveled + (int)(Math.random()*6) + 6;
+                    nativedistance += (int)(Math.random()*6) + 5;
+                    distancetraveled += (int)(Math.random()*6) + 7;
                     thirst -= 0.5;
                     break;
                 case 4:
                     camelwear++;
-                    nativedistance = nativedistance + (int)(Math.random()*6) + 6;
+                    nativedistance += (int)(Math.random()*6) + 5;
                     break;
                 case 5:
                     System.out.println("Your canteen has " + canteen + " drinks left in it.");
-                    System.out.println("Your camel is at " + (camelwear * 20) + "%");
+                    System.out.println("Your horse is at " + (camelwear * 20) + "%");
                     System.out.println("You have traveled " + distancetraveled + " miles.");
-                    System.out.println("The natives are " + (distancetraveled-nativedistance) + " miles away.");
+                    System.out.println("The soldiers are " + (distancetraveled-nativedistance) + " miles away.");
                     System.out.println("Your thirst level is at " + thirst + ".");
                     break;
                 case 6:
-                    if(((int)(Math.random()*2) + 1) == 2){
+                    if(((int)(Math.random()*2) + 1) == 1){
                         nativedistance = ((nativedistance / nativedistance) - 21);
-                        System.out.println("The natives lost you! they went back to camp! They will come again so you need to keep moving.");
+                        System.out.println("The gaurds lost you! they went back to the city! They will come again so you need to keep moving.");
                         
                     }else{
                         hidefailed = 1;
@@ -124,7 +129,7 @@ public class Game {
 
             if(choice == 2){
                 if(((int) (Math.random()*9) + 1) == 2){
-                    System.out.println("You found an oasis!");
+                    System.out.println("You found a clean river to fill your canteen!");
                     while(canteen != 5){
                         canteen++;
                     }
@@ -132,7 +137,7 @@ public class Game {
                 }
             }else if(choice == 3){
                 if(((int) (Math.random()*14) + 1) == 2){
-                    System.out.println("You found an oasis!");
+                    System.out.println("You found a clean river to fill your canteen!");
                     while(canteen != 5){
                         canteen++;
                     }
@@ -142,36 +147,86 @@ public class Game {
 
 
             if((distancetraveled - nativedistance) <= 12 && (distancetraveled - nativedistance) >= 1){
-                System.out.println("The natives are getting close!");
+                System.out.println("The gaurds are getting close!");
             }
             if(thirst <= 1){
                 System.out.println("You need to drink soon!");
             }
 
             if(camelwear <= 1){
-                System.out.println("Your camel needs to rest!");
+                System.out.println("Your horse needs to rest!");
             }
 
             if(hidefailed == 1 || camelwear <= 0 || thirst <= 0 || (distancetraveled - nativedistance) <= 0 || distancetraveled >= 200){
                 playing = false;
             }
+            
+            
+            if ((distancetraveled - nativedistance) > 11) {
+                    System.out.println("                      P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 11) {
+                    System.out.println("G                     P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 10) {
+                    System.out.println("  G                   P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 9) {
+                    System.out.println("    G                 P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 8) {
+                    System.out.println("      G               P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 7) {
+                    System.out.println("        G             P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 6) {
+                    System.out.println("          G           P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 5) {
+                    System.out.println("            G         P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 4) {
+                    System.out.println("              G       P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 3) {
+                    System.out.println("                G      P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 2) {
+                    System.out.println("                  G   P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
+                if ((distancetraveled - nativedistance) == 1) {
+                    System.out.println("                    G P");
+                    System.out.println("- - - - - - - - - - - -");
+                }
 
 
         }
         if((distancetraveled - nativedistance) <= 0){
-            System.out.println("The natives caught you! You lost.");
+            System.out.println("The gaurds caught you! You lost.");
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(thirst <= 0){
             System.out.println("You died of thirst! You lost.");
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(camelwear <= 0){
-            System.out.println("Your camel died and the natives caught up to you! You lost.");
+            System.out.println("Your horse died and the gaurds caught up to you! You lost.");
             System.out.println("You traveled " + distancetraveled + " miles.");
         }else if(distancetraveled >= 200){
-            System.out.println("You made it across the desert! You won!");
+            System.out.println("You escaped the gaurds! You won!");
             gameFinished = 1;
         }else if(hidefailed == 1){
-            System.out.println("The natives found you! You lose!");
+            System.out.println("The gaurds found you! You lose!");
         }
         
         //If the game is won then the Endless mode is unlocked on the play again prompt.
@@ -211,23 +266,23 @@ public class Game {
                     case 1:
                         canteen--;
                         thirst++;
-                        nativedistance = nativedistance + (int) (Math.random() * 6) + 6;
+                        nativedistance += (int) (Math.random() * 6) + 6;
                         break;
                     case 2:
                         camelwear--;
-                        nativedistance = nativedistance + (int) (Math.random() * 6) + 6;
-                        distancetraveled = distancetraveled + (int) (Math.random() * 6) + 12;
+                        nativedistance += (int) (Math.random() * 6) + 6;
+                        distancetraveled += (int) (Math.random() * 6) + 16;
                         thirst--;
                         break;
                     case 3:
-                        camelwear = camelwear - 0.5;
-                        nativedistance = nativedistance + (int) (Math.random() * 6) + 6;
-                        distancetraveled = distancetraveled + (int) (Math.random() * 6) + 6;
-                        thirst = thirst - 0.5;
+                        camelwear -= 0.5;
+                        nativedistance += (int) (Math.random() * 6) + 6;
+                        distancetraveled += (int) (Math.random() * 6) + 8;
+                        thirst -= 0.5;
                         break;
                     case 4:
                         camelwear++;
-                        nativedistance = nativedistance + (int) (Math.random() * 6) + 6;
+                        nativedistance += (int) (Math.random() * 6) + 6;
                         break;
                     case 5:
                         System.out.println("Your canteen has " + canteen + " drinks left in it.");
@@ -341,9 +396,6 @@ public class Game {
                     System.out.println("                    N P");
                     System.out.println("- - - - - - - - - - - -");
                 }
-                if((distancetraveled - nativedistance) <= (nativedistance / 2)(int) Math.random()){
-                    
-                }
                 
                 
                 
@@ -373,3 +425,4 @@ public class Game {
         playAgain1();
     }
 }
+

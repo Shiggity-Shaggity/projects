@@ -1,0 +1,52 @@
+import java.awt.*;
+
+public class Drawer {
+    public static void main(String[] args) throws InterruptedException{
+        DrawingPanel panel = new DrawingPanel(500,500);
+        
+        Graphics g = panel.getGraphics();
+        int x = 250;
+        int y = 250;
+        int radius = 100;
+        g.setColor(Color.yellow);
+        g.fillOval(x-radius, y-radius, 2*radius, 2*radius);
+        
+        g.setColor(Color.BLACK);
+        
+        g.fillRect(210, 280, 105 ,10 );
+        
+        g.setColor(Color.WHITE);
+        
+        g.fillOval(190, 180, 60, 60);
+        g.fillOval(260, 180, 60, 60);
+        
+        g.setColor(Color.BLACK);
+        
+        g.fillOval(285, 206, 30, 30);
+        g.fillOval(215, 206, 30, 30);
+        
+        Thread.sleep(1000);
+        
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, 500, 500);
+        
+        g.setColor(Color.GREEN);
+        g.fillRect(135, 140, 230, 260);
+        g.setColor(Color.RED);
+        g.fillPolygon(new int[] {90, 250, 409}, new int[] {140, 40, 140}, 3);
+        g.setColor(Color.BLUE);
+        g.fillRect(195, 220, 110, 180);
+        g.setColor(Color.yellow);
+        g.fillOval(202, 312, 15, 15);
+        
+        Thread.sleep(1000);
+        
+        System.out.println("eh");
+        
+            
+        
+    }
+    
+    
+}
+//ADD DRAWING PANEL

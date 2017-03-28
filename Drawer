@@ -1,52 +1,50 @@
-import java.awt.*;
+package animationproject;
 
-public class Drawer {
-    public static void main(String[] args) throws InterruptedException{
-        DrawingPanel panel = new DrawingPanel(500,500);
-        
-        Graphics g = panel.getGraphics();
-        int x = 250;
-        int y = 250;
-        int radius = 100;
-        g.setColor(Color.yellow);
-        g.fillOval(x-radius, y-radius, 2*radius, 2*radius);
-        
-        g.setColor(Color.BLACK);
-        
-        g.fillRect(210, 280, 105 ,10 );
-        
-        g.setColor(Color.WHITE);
-        
-        g.fillOval(190, 180, 60, 60);
-        g.fillOval(260, 180, 60, 60);
-        
-        g.setColor(Color.BLACK);
-        
-        g.fillOval(285, 206, 30, 30);
-        g.fillOval(215, 206, 30, 30);
-        
-        Thread.sleep(1000);
-        
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 500, 500);
-        
-        g.setColor(Color.GREEN);
-        g.fillRect(135, 140, 230, 260);
-        g.setColor(Color.RED);
-        g.fillPolygon(new int[] {90, 250, 409}, new int[] {140, 40, 140}, 3);
-        g.setColor(Color.BLUE);
-        g.fillRect(195, 220, 110, 180);
-        g.setColor(Color.yellow);
-        g.fillOval(202, 312, 15, 15);
-        
-        Thread.sleep(1000);
-        
-        System.out.println("eh");
-        
-            
-        
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+/**
+ *
+ * @author smith1061r
+ */
+public class AnimationProject extends Application {
+    
+    @Override
+    public void start(Stage stage) {
+       Rectangle bob = new Rectangle(25,25,Color.RED);
+       bob.setX(125);
+       bob.setY(125);
+       
+       Group stuff = new Group();
+       Scene scene = new Scene(stuff);
+       
+       stuff.getChildren().add(bob);
+       stage.setScene(scene);
+       stage.setHeight(300);
+       stage.setWidth(300);
+       stage.show();
+       
+       final long startTime = System.nanoTime();
+       new AnimationTimer(){
+           public void handle(long now){
+               long deltaT = (now - startTime)/10000000;
+               bob.setX(125*Math.sin(deltaT*Math.PI/180)+125);
+               bob.setY(125*Math.cos(deltaT*Math.PI/180)+125);
+           }
+       }.start();
+       
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
     
-    
 }
-//ADD DRAWING PANEL

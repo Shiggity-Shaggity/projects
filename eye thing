@@ -1,0 +1,123 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package animationproject;
+
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+
+
+
+public class AnimationProject extends Application {
+    
+    private double mouseX = 0;
+    private double mouseY = 0;
+    @Override
+    public void start(Stage stage) {
+       Circle eye = new Circle(50, Color.BLACK);//50
+       eye.setCenterX(100);
+       eye.setCenterY(100);
+       
+       Circle pupil = new Circle(20, Color.WHITE);//20
+       
+       Circle eye2 = new Circle(50, Color.BLACK);
+       eye2.setCenterX(300);
+       eye2.setCenterY(100);
+       
+       Circle pupil2 = new Circle(20, Color.BLANCHEDALMOND);
+       
+       
+       Group stuff = new Group();
+       Scene scene = new Scene(stuff);
+       
+       stuff.getChildren().addAll(eye,pupil,eye2,pupil2);
+       stage.setScene(scene);
+       stage.setHeight(300);
+       stage.setWidth(300);
+       stage.show();
+       
+       double maxDistance = (eye.getRadius()-pupil.getRadius())/ 2;
+      
+       
+       final long startTime = System.nanoTime();
+       new AnimationTimer(){
+           public void handle(long now){
+               //long deltaT = (now - startTime)/10000000
+               double x = mouseX - eye.getCenterX();
+               double y = mouseY - eye.getCenterY();
+               double distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+               
+               if(distance>maxDistance)
+               {
+                   pupil.setCenterX(eye.getCenterX() + (x) / distance * maxDistance);
+                   pupil.setCenterY(eye.getCenterY() + (y) / distance * maxDistance);
+               }
+               else
+               {
+                pupil.setCenterX(mouseX);
+               
+                pupil.setCenterY(mouseY);
+               }
+               
+               
+               
+               
+           }
+       }.start();
+       
+       double maxDistance2 = (eye2.getRadius()-pupil2.getRadius())/ 2;
+      
+       
+       new AnimationTimer(){
+           public void handle(long now){
+               //long deltaT = (now - startTime)/10000000
+               double x = mouseX - eye2.getCenterX();
+               double y = mouseY - eye2.getCenterY();
+               double distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+               
+               if(distance>maxDistance2)
+               {
+                   pupil2.setCenterX(eye2.getCenterX() + (x) / distance * maxDistance2);
+                   pupil2.setCenterY(eye2.getCenterY() + (y) / distance * maxDistance2);
+               }
+               else
+               {
+                pupil2.setCenterX(mouseX);
+               
+                pupil2.setCenterY(mouseY);
+               }
+               
+               
+               
+               
+           }
+       }.start();
+       
+       stage.addEventHandler(MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>()
+       {
+           public void handle(MouseEvent e)
+           {
+               mouseX = e.getX();
+               mouseY = e.getY();
+           }
+       });
+       
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
+}

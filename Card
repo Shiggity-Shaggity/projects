@@ -1,0 +1,108 @@
+
+public class Card {
+    public static final int CLUBS = 0;
+    public static final int DIAMONDS = 1;
+    public static final int HEARTS = 2;
+    public static final int SPADES = 3;
+    
+    //ranks
+    public static final int ACE = 0;
+    public static final int TWO = 1;
+    public static final int THREE = 2;
+    public static final int FOUR = 3;
+    public static final int FIVE = 4;
+    public static final int SIX = 5;
+    public static final int SEVEN = 6;
+    public static final int EIGHT = 7;
+    public static final int NINE = 8;
+    public static final int TEN = 9;
+    public static final int JACK = 10;
+    public static final int QUEEN = 11;
+    public static final int KING = 12;
+    
+    private int suit;
+    private int rank;
+    
+    public Card(int rank, int suit){
+        this.suit = suit;
+        this.rank = rank;
+    }
+    
+    public int compareTo(Card other){
+        if(this.rank == other.rank){
+            return this.suit - other.suit;
+        }else{
+            return this.rank - other.rank;
+        }
+    }
+    
+    public String toString(){
+        String result = "";
+        switch(this.rank){
+            case ACE:
+                result += "Ace";
+            break;
+            case TWO:
+                result += "2";
+            break;
+            case THREE:
+                result += "3";
+            break;
+            case FOUR:
+                result += "4";
+            break;
+            case FIVE:
+                result += "5";
+            break;
+            case SIX:
+                result += "6";
+            break;
+            case SEVEN:
+                result += "7";
+            break;
+            case EIGHT:
+                result += "8";
+            break;
+            case NINE:
+                result += "9";
+            break;
+            case TEN:
+                result += "10";
+            break;
+            case JACK:
+                result += "Jack";
+            break;
+            case QUEEN:
+                result += "Queen";
+            break;
+            case KING:
+                result += "King";
+            break;
+        }
+        result += " of ";
+        switch(this.suit){
+            case CLUBS:
+                result += "Clubs";
+            break;
+            case SPADES:
+                result += "Spades";
+            break;
+            case DIAMONDS:
+                result += "Diamonds";
+            break;
+            case HEARTS:
+                result += "Hearts";
+            break;
+        }
+        return result;
+            
+    }
+    
+    public int getSuit(){
+        return this.suit;
+    }
+    
+    public int getRank(){
+        return this.rank;
+    }
+}

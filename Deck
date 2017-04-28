@@ -1,0 +1,57 @@
+import java.util.Random;
+
+public class Deck {
+    private Card[] cards;
+    private int marker;
+
+    public Deck(){
+        cards = new Card[52];
+        int cardNdx = 0;
+        for(int rank = Card.ACE; rank <= Card.KING; rank++){
+            for(int suit = Card.CLUBS; suit <= Card.SPADES; suit++){
+                cards[cardNdx] = new Card(rank, suit);
+                cardNdx++;
+            }
+        }
+        marker = 0;
+    }
+
+    public void print(){
+        int s = 1;
+        for(Card card:cards){
+            System.out.print(" " + s + " ");
+            System.out.println(card);
+
+            s++;
+        }
+    }
+
+    public static void main(String[] args){
+        Deck deck = new Deck();
+        deck.shuffle();
+
+    }
+
+    public void shuffle(){
+        Random rand = new Random();
+        for(int ndx1 = 0; ndx1 < cards.length - 1; ndx1++){
+            int ndx2 = (ndx1 +1) + rand.nextInt(cards.length - ndx1 - 1) ;
+            System.out.println("ndx1 is " + ndx1);
+            System.out.print("and ndx2 is " + ndx2);
+            Card temp = cards[ndx1];
+            cards[ndx1] = cards[ndx2];
+            cards[ndx2] = temp;
+        }
+
+    }
+
+    public Card dealCard(){
+        if(marker >= cards.length){
+            this.shuffle();
+            marker = 0;
+        }
+        Card res = cards[marker];
+        marker++;
+        return res;
+    }
+}

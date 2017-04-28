@@ -1,0 +1,22 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Game2 {
+    private Player me;
+    private Player computer;
+    private Random rand;
+    private Scanner console;
+    private Deck deck;
+
+    public Game2(){
+        this.me = new Player();
+        this.computer = new Player();
+        this.rand = new Random();
+        this.console = new Scanner(System.in);
+        this.deck = new Deck();
+    }
+
+    public void playRound(){
+
+    }
+}

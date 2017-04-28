@@ -1,0 +1,14 @@
+public class Player {
+    public int points;
+    public Card card;
+    public int wins;
+    public int losses;
+    public int ties;
+    
+    public Player(){
+        this.points = 0;
+        this.wins = 0;
+        this.losses = 0;
+        this.ties = 0;
+    }
+}

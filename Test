@@ -1,0 +1,22 @@
+public class Test {
+    public static void main(String[] args){
+        for(int rank = Card.ACE; rank <= Card.KING; rank++){
+            for(int suit = Card.CLUBS; suit <= Card.SPADES; suit++){
+                Card current = new Card(rank, suit);
+                System.out.println(current);
+                if(current.getRank() == rank && current.getSuit() == suit){
+                    System.out.println("[Good]");
+                }else{
+                    System.out.println("[Broken]");
+                }
+                
+            }
+            System.out.println();
+        }
+        System.out.println("King of Spades compared to Ace of Clubs: "); 
+        System.out.println(new Card(Card.KING, Card.SPADES).compareTo(new Card(Card.ACE, Card.CLUBS)));
+        
+        System.out.println("8 of Spades compared to 8 of Clubs: "); 
+        System.out.println(new Card(Card.EIGHT, Card.SPADES).compareTo(new Card(Card.EIGHT, Card.CLUBS)));
+    }
+}

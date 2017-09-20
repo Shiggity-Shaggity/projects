@@ -1,0 +1,51 @@
+import java.util.Scanner;
+/**
+ *
+ * @author smith1061r
+ */
+public class Eggocalculator {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner wow = new Scanner(System.in);
+        
+        System.out.println("Pick an operation by giving the corresponding number.");
+        System.out.println("1:Addtion, 2:Subtraction, 3:Multiplication, 4:Division");
+        
+        int Operation = wow.nextInt();
+        switch(Operation) {
+            case 1:
+                addition();
+                break;
+            case 2:
+                subtraction();
+                break;
+            case 3:
+                division();
+                break;
+            case 4:
+                multiplication();
+                break;
+        }
+        
+    }
+    public static void addition(){
+        System.out.println("addition");
+        System.exit(0);
+    }
+    public static void subtraction(){
+        System.out.println("subtraction");
+        System.exit(0);
+    }
+    public static void multiplication(){
+        System.out.println("multiplication");
+        System.exit(0);
+    }
+    public static void division(){
+        System.out.println("division");
+        System.exit(0);
+    }
+    
+}

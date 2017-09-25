@@ -249,6 +249,7 @@ public class Game {
         double thirst = 5;
         int hidefailed = 0;
         boolean Camel = true;
+        int tiredness = 0; 
 
         while(playing){
             if(Camel){
@@ -409,11 +410,48 @@ public class Game {
                 System.out.println("3) Travel half speed");
                 System.out.println("4) Stop and rest");
                 System.out.println("5) Status check");
-                System.out.println("6) Hide");
+                System.out.println("6) Hide and rest");
                 System.out.println("7) Quit");
 
                 int choice = scanner.nextInt();
                 
+                switch(choice){
+                    case 1:
+                        canteen--;
+                        thirst++;
+                        nativedistance += (int) (Math.random() * 6) + 6;
+                        break;
+                    case 2:
+                        thirst--;
+                        nativedistance += (int) (Math.random() * 6) + 6;
+                        distancetraveled += (int) (Math.random() * 4) + 2;
+                        break;
+                    case 3:
+                        tiredness = 0;
+                        nativedistance += (int) (Math.random() * 6) + 6;
+                        break;
+                    case 4:
+                        System.out.println("Your canteen has " + canteen + " drinks left in it.");
+                        System.out.println("Your camel is dead");
+                        System.out.println("You have traveled " + distancetraveled + " miles.");
+                        System.out.println("The natives are " + (distancetraveled - nativedistance) + " miles away.");
+                        System.out.println("Your thirst level is at " + thirst + ".");
+                        System.out.println("Your tiredness is at " + tiredness + ". Be careful, if your tiredness reaches 10, you will pass out and be caught!");
+                        break;
+                    case 5:
+                        if(((int)(Math.random()*3) + 1) == (1 || 2)){
+                            nativedistance = ((nativedistance / nativedistance) - 21);
+                            System.out.println("The gaurds lost you! they went back to the city! They will come again so you need to keep moving.");
+                            
+                        }else{
+                            hidefailed = 1;
+                        }
+                        break;
+                     case 6:
+                        System.out.println("You quit.");
+                        System.exit(0);
+                        
+                }
             
                                                                            
             } 
@@ -432,7 +470,7 @@ public class Game {
         }else if(distancetraveled >= 200){
             System.out.println("You made it across the desert! You won!");
         }else if(hidefailed == 1){
-            System.out.println("The natives found you!");
+            System.out.println("The natives found you! You lose!");
         }
         playAgain1();
     }

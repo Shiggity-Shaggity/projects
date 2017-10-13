@@ -1,0 +1,73 @@
+import java.util.Scanner;
+public class QuestionAnswer {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int score = 0;
+        System.out.println("What is 1 + 1");
+
+        int i = scan.nextInt();
+
+        if(i == 2){
+            System.out.println("wow, good job, that's correct");
+            score++;
+        }else{
+            System.out.println("no, next question");
+        }
+
+        System.out.println("What is 1 + 2");
+
+        i = scan.nextInt();
+
+        if(i == 3){
+            System.out.println("That's also right, yay");
+            score++;
+        }else{
+            System.out.println("nopitty nope nope");
+        }
+
+        System.out.println("What is 2 + 2");
+
+        i = scan.nextInt();
+
+        if(i == 4){
+            System.out.println("Yuppo duppo, good jobbo");
+            score++;
+        }else{
+            System.out.println("wriggity wrong");
+        }
+
+        System.out.println("What is 13 * 2");
+
+        i = scan.nextInt();
+
+        if(i == 26){
+            System.out.println("26 yip");
+            score++;
+        }else{
+            System.out.println("yes that was wrong ");
+        }
+
+        System.out.println("what is 12^2");
+
+        i = scan.nextInt();
+
+        if(i == 144){
+            System.out.println("I can't think of anymore ways to say correct so here you go ");
+            score++;
+        }else{
+            System.out.println("no i guess");
+        }
+
+        System.out.println("Your score is " + score + "/5");
+        if(score == 5){
+            System.out.println("perfect score, good job");
+        }else if(score == 0){
+            System.out.println("uh, mkay");
+        }else{
+            System.out.println("I'm not sure how you got any wrong but good job anyways");
+        }
+
+
+    }
+
+}

@@ -1,0 +1,10 @@
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+public class Game{
+  //Introduction
+  //Start menu
+  //Start, options (Diffuculty, cheats), exit
+  //if start tutorial
+  String battleGraphic1 = "[][][][][][][][][][]%\n
+                           %\n  "  
+}

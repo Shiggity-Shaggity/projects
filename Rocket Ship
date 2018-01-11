@@ -1,0 +1,81 @@
+public class MyClass {
+    import java.util.Scanner;
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter an integer for width.");
+        int width = scan.nextInt();
+        cone(width);
+        line(width);
+        drawTop(width);
+        drawBottom(width);
+        line(width);
+        drawBottom(width);
+        drawTop(width);
+        line(width);
+        cone(width);
+    }
+    public static void cone(int width){
+        for(int i=1;i<=width*2;i++){
+            for(int j=(width*2)-1; j>=i;j--){
+                System.out.print(" ");
+            }
+            for(int k=1;k<=i;k++){
+                System.out.print("/");
+            }
+            System.out.print("**");
+            for(int l=1;l<=i;l++){
+                System.out.print("\\");
+            }
+            for(int j=4;j>=i;j--){
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+    public static void line(int width){
+        for(int i=1;i<2;i++){
+            System.out.print("+");
+            for(int j=1;j<=width*2;j++){
+                System.out.print("=*");
+            }
+            
+            System.out.print("+");
+        }
+        System.out.println();
+    }
+    public static void drawTop(int width){
+        for(int i=1;i<=width;i++){
+            System.out.print("|");
+            for(int o=1;o<=2; o++){
+                for(int j=1; j<=width-i;j++){
+                    System.out.print(".");
+                }
+                for(int k=1; k<=i;k++){
+                    System.out.print("/\\");
+                }
+                for(int j=1;j<=width-i;j++){
+                    System.out.print(".");
+                }
+            }
+            System.out.println("|");
+        }
+    }
+    public static void drawBottom(int width){
+        for(int i=width;i>=1;i--){
+            System.out.print("|");
+            for(int o=1;o<=2; o++){
+                for(int j=1; j<=width-i;j++){
+                    System.out.print(".");
+                }
+                for(int k=1; k<=i;k++){
+                    System.out.print("\\/");
+                }
+                for(int j=1;j<=width-i;j++){
+                    System.out.print(".");
+                }
+            }
+            System.out.println("|");
+        }
+    }
+    
+}

@@ -1,0 +1,35 @@
+public class Food {
+    public static final int UNKNOWN = 0;
+    public static final int HAM_BURGER = 3;
+    public static final int CHEESE_BURGER = 3;
+    public static final int OOF_DOG = 4;
+    public static final int DOMESTICATED_DOG = 400;
+    public static final int ASIAN_CAT = 200;
+    public static final int HOLY_WATER = 10;
+    public static final int CHRIST_HIMSELF = 2;
+
+    private double price;
+    private int type;
+
+    public Food(int type){
+        if(type==HAM_BURGER){
+            this.price = 3.00;
+        }else if(type==CHEESE_BURGER){
+            this.price = 3.50;
+        }else if(type==OOF_DOG){
+            this.price = 4.00;
+        }else if(type==DOMESTICATED_DOG){
+            this.price = 400.00;
+        }else if(type==ASIAN_CAT){
+            this.price = 200.00;
+        }else if(type==HOLY_WATER){
+            this.price =10;
+        }else if(type==CHRIST_HIMSELF){
+            this.price = 2;
+        }else{
+            this.price = 0.00;
+            this.type = UNKNOWN;
+        }
+
+    }
+}

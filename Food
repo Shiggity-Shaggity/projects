@@ -14,18 +14,25 @@ public class Food {
     public Food(int type){
         if(type==HAM_BURGER){
             this.price = 3.00;
+            this.type = type;
         }else if(type==CHEESE_BURGER){
             this.price = 3.50;
+            this.type = type;
         }else if(type==OOF_DOG){
             this.price = 4.00;
+            this.type = type;
         }else if(type==DOMESTICATED_DOG){
             this.price = 400.00;
+            this.type = type;
         }else if(type==ASIAN_CAT){
             this.price = 200.00;
+            this.type = type;
         }else if(type==HOLY_WATER){
             this.price =10;
+            this.type = type;
         }else if(type==CHRIST_HIMSELF){
             this.price = 2;
+            this.type = type;
         }else{
             this.price = 0.00;
             this.type = UNKNOWN;

@@ -20,10 +20,10 @@ public class Card {
     public static final int QUEEN = 11;
     public static final int KING = 12;
     
-    private int suit;
-    private int rank;
+    private final Suit suit;
+    private final Rank rank;
     
-    public Card(int rank, int suit){
+    public Card(Rank rank, Suit suit){
         this.suit = suit;
         this.rank = rank;
     }

@@ -1,0 +1,37 @@
+import java.util.Arrays;
+
+public class Binary {
+    public static String result = "";
+    public static void main(String[] args){
+        String yonk = "01110100011000010110000101110011011001100010000001111001011011110110111101110000";
+        result = toText(yonk);
+        System.out.println(result);
+    }
+    public static String toBinary(String s) {
+        byte[] bytes = s.getBytes();
+
+        StringBuilder binary = new StringBuilder();
+        for (byte yoop : bytes) {
+            int bonk = yoop;
+            for (int i = 0; i < 8; i++) {
+                binary.append((bonk & 128) == 0 ? 0 : 1);
+                bonk <<= 1;
+            }
+        }
+
+        return binary.toString();
+    }
+
+    public static String toText(String input) {
+        StringBuilder yeetbuilder = new StringBuilder();
+
+        Arrays.stream(
+                input.split("(?<=\\G.{8})")
+        ).forEach(s ->
+                yeetbuilder.append((char) Integer.parseInt(s, 2))
+        );
+
+        return yeetbuilder.toString();
+    }
+
+}

@@ -11,11 +11,6 @@ public class Game {
         if(choice == 2){
             endlessGame();
         }
-        
-        
-        
-        
-
     }
     public static void playAgain(){
         System.out.println("Play again?");

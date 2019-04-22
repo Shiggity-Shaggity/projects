@@ -1,2 +1,2 @@
 # projects
-TEXT BASED CAMEL GAME IN PROGRESS____________________UPDATE, lol not anymore
+java projects from 9th grade
